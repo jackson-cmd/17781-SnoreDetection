@@ -19,13 +19,20 @@ Run our app: To run the app, use `flutter run`
 
 Citation:
 https://github.com/utrodus/flutter-sleep-app
+
 https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter
+
 https://github.com/harlanx/voice_recorder_recognizer
 
 
 How to use the Smart Pillow code.
+
 It is based on Arduino UNO board.
+
 Install a Arduino Studio and choose board Arduino Uno R3 board.
+
 Verify and Upload the code to board.
+
 Plug the button to pin A2.
+
 connect the servo control pin to pin 3. 
