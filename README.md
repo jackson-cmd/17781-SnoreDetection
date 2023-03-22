@@ -15,3 +15,8 @@ Download our project.
 Our project have two parts right now: Login_page, which contains user authentication and crypto.
 
 Run our app: To run the app, use `flutter run`
+
+
+Citation:
+https://github.com/utrodus/flutter-sleep-app
+https://github.com/abuanwar072/Welcome-Login-Signup-Page-Flutter
