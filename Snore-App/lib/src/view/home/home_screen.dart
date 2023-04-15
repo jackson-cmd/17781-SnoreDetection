@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:sleep/src/themes.dart';
 import 'package:sleep/src/utils/responsive.dart';
 import 'package:sleep/src/view/details/detail_screen.dart';
+import 'package:sleep/src/view/widgets/primary_btn.dart';
 import 'package:sleep/src/view_models/home_view_model.dart';
 
 import '../../models/sleep_media_model.dart';
 import '../widgets/icon_menu.dart';
 import '../widgets/sleep_card_item.dart';
 import '../widgets/sleep_item_loading.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -329,31 +331,32 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(
                               height: 15,
                             ),
-                            Text(
-                              "You Don't Have Favorite Stories & Music",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(
-                                    fontWeight: medium,
-                                    height: 1.4,
-                                    fontSize: 17,
-                                  ),
-                            ),
+                            PrimaryBtn(label: "Connect to Smart Pillow"),
+                            // Text(
+                            //   "You Don't Have Favorite Stories & Music",
+                            //   style: Theme.of(context)
+                            //       .textTheme
+                            //       .bodyText2!
+                            //       .copyWith(
+                            //         fontWeight: medium,
+                            //         height: 1.4,
+                            //         fontSize: 17,
+                            //       ),
+                            // ),
                             const SizedBox(
                               height: 5,
                             ),
-                            Text(
-                              "Let's Add Stories & Music To Favorites",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(
-                                    fontWeight: medium,
-                                    height: 1.4,
-                                    fontSize: 16,
-                                  ),
-                            ),
+                            // Text(
+                            //   "Let's Add Stories & Music To Favorites",
+                            //   style: Theme.of(context)
+                            //       .textTheme
+                            //       .bodyText2!
+                            //       .copyWith(
+                            //         fontWeight: medium,
+                            //         height: 1.4,
+                            //         fontSize: 16,
+                            //       ),
+                            // ),
                           ],
                         )),
                     const SizedBox(
@@ -638,27 +641,68 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(
                                   height: 30,
                                 ),
-                                Text(
-                                  "You Don't Have Favorite Stories & Music",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(
-                                        fontWeight: light,
-                                      ),
+                                PrimaryBtn(
+                                  label: "Connect to Smart Pillow",
+                                  onPressed: (){
+                                    // BlueTooth code
+                                    // FlutterBluePlus flutterBlue = FlutterBluePlus.instance;
+                                    // // Start scanning
+                                    // flutterBlue.startScan(timeout: Duration(seconds: 4));
+                                    //
+                                    // // Listen to scan results
+                                    // var subscription = flutterBlue.scanResults.listen((results) {
+                                    //   // do something with scan results
+                                    //   for (ScanResult r in results) {
+                                    //     print('${r.device.name} found! rssi: ${r.rssi}');
+                                    //   }
+                                    // });
+                                    //
+                                    // // Stop scanning
+                                    // flutterBlue.stopScan();
+                                    // // Connect to the device
+                                    // await device.connect();
+                                    //
+                                    // // Disconnect from device
+                                    // device.disconnect();
+                                    //
+                                    // List<BluetoothService> services = await device.discoverServices();
+                                    // services.forEach((service) {
+                                    //   // do something with service
+                                    // });
+                                    //
+                                    // // Reads all characteristics
+                                    // var characteristics = service.characteristics;
+                                    // for(BluetoothCharacteristic c in characteristics) {
+                                    //   List<int> value = await c.read();
+                                    //   print(value);
+                                    // }
+                                    //
+                                    // // Writes to a characteristic
+                                    // await c.write([0x12, 0x34])
+
+                                  },
                                 ),
+                                // Text(
+                                //   "You Don't Have Favorite Stories & Music",
+                                //   style: Theme.of(context)
+                                //       .textTheme
+                                //       .headline4!
+                                //       .copyWith(
+                                //         fontWeight: light,
+                                //       ),
+                                // ),
                                 const SizedBox(
                                   height: 5,
                                 ),
-                                Text(
-                                  "Let's Add Stories & Music To Favorites",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(
-                                        fontWeight: light,
-                                      ),
-                                ),
+                                // Text(
+                                //   "Let's Add Stories & Music To Favorites",
+                                //   style: Theme.of(context)
+                                //       .textTheme
+                                //       .headline4!
+                                //       .copyWith(
+                                //         fontWeight: light,
+                                //       ),
+                                // ),
                               ],
                             )),
                         const SizedBox(
