@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sleep/src/view/Login/login_screen.dart';
+import 'package:sleep/src/view/signup/signup_screen.dart';
 
 import '../../themes.dart';
 import '../../utils/globals.dart';
@@ -58,18 +60,36 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: PrimaryBtn(
-                  label: "GET STARTED",
+                  label: "LOGIN",
                   onPressed: () {
-                    snackbarKey.currentState?.showSnackBar(const SnackBar(
-                      content: Text("Welcome to Sleep App!  ❤🤗"),
-                      behavior: SnackBarBehavior.floating,
-                      duration: Duration(seconds: 2),
-                      backgroundColor: Color(0xff3253BD),
-                    ));
+                    // snackbarKey.currentState?.showSnackBar(const SnackBar(
+                    //   content: Text("Welcome to Sleep App!  ❤🤗"),
+                    //   behavior: SnackBarBehavior.floating,
+                    //   duration: Duration(seconds: 2),
+                    //   backgroundColor: Color(0xff3253BD),
+                    // ));
                     Navigator.pushAndRemoveUntil(context,
                         MaterialPageRoute(builder: (context) {
-                      return const HomeScreen();
+                      return const LoginScreen();
                     }), (route) => false);
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                child: PrimaryBtn(
+                  label: "SIGN UP",
+                  onPressed: () {
+                    // snackbarKey.currentState?.showSnackBar(const SnackBar(
+                    //   content: Text("Welcome to Sleep App!  ❤🤗"),
+                    //   behavior: SnackBarBehavior.floating,
+                    //   duration: Duration(seconds: 2),
+                    //   backgroundColor: Color(0xff3253BD),
+                    // ));
+                    Navigator.pushAndRemoveUntil(context,
+                        MaterialPageRoute(builder: (context) {
+                          return const SignUpScreen();
+                        }), (route) => false);
                   },
                 ),
               )
@@ -78,3 +98,4 @@ Scaffold welcomeMobile(BuildContext context, double screenWidth) {
         ),
       ));
 }
+

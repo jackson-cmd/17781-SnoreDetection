@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               changePageText(selectedCategoryId);
                             },
                             icon: "assets/icon_menu_favorite.png",
-                            label: "My",
+                            label: "Snore",
                             isSelected: selectedCategoryId == 4 ? true : false,
                           ),
                           IconMenu(
