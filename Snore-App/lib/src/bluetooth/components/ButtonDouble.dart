@@ -42,11 +42,11 @@ class _ButtonState extends State<ButtonDoubleComponent> {
 
   Widget build(BuildContext context) {
     return (Container(
-        height: 60,
-        width: 90,
+        height: 600,
+        width: 350,
         child: TextButton(
           style: TextButton.styleFrom(
-            foregroundColor: Colors.pink,
+            foregroundColor: Colors.black,
           ),
           onPressed: () {
             _sendMessage(buttonClicado ? widget.comandOn! : widget.comandOff!);
@@ -54,7 +54,7 @@ class _ButtonState extends State<ButtonDoubleComponent> {
           },
           child: Text(
             widget.buttonName!,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black, fontSize: 100),
           ),
         )));
   }

@@ -41,14 +41,14 @@ class _ButtonState extends State<ButtonSingleComponent> {
         width: 80,
         child: TextButton(
           style: TextButton.styleFrom(
-            foregroundColor: Colors.pink,
+            foregroundColor: Colors.black,
           ),
           onPressed: () {
             _sendMessage(widget.comandOn!);
           },
           child: Text(
             widget.buttonName!,
-            style: TextStyle(color: Colors.white, fontSize: 25),
+            style: TextStyle(color: Colors.black, fontSize: 25),
           ),
           // color: widget.colorButton!,
           // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),

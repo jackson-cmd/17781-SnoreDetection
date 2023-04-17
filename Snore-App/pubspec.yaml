@@ -20,7 +20,14 @@ dependencies:
   shimmer: ^2.0.0
   flutter_svg: ^1.0.0
   flutter_blue_plus: ^1.4.0
+  flutter_bluetooth_serial: ^0.3.2
 
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  # cupertino_icons: ^1.0.2
+  scoped_model: ^2.0.0-nullsafety.0
+  flutter_speech: ^2.0.0
+  provider: ^6.0.1
 dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:

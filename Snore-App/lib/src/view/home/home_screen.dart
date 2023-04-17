@@ -5,6 +5,7 @@ import 'package:sleep/src/view/details/detail_screen.dart';
 import 'package:sleep/src/view/widgets/primary_btn.dart';
 import 'package:sleep/src/view_models/home_view_model.dart';
 
+import '../../bluetooth/bluetoothentry.dart';
 import '../../models/sleep_media_model.dart';
 import '../widgets/icon_menu.dart';
 import '../widgets/sleep_card_item.dart';
@@ -201,6 +202,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 selectedCategoryId = 4;
                               });
                               changePageText(selectedCategoryId);
+                              Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) {
+                        return const Bluetooth();
+                      }), (route) => false);
                             },
                             icon: "assets/icon_menu_favorite.png",
                             label: "Snore",

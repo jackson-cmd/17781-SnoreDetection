@@ -170,6 +170,78 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
                             ]),
                       ]),
                 ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 20),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "A/B",
+                //             comandOn: 'a',
+                //             comandOff: 'b',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "C/D",
+                //             comandOn: 'c',
+                //             comandOff: 'd',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "E/F",
+                //             comandOn: 'e',
+                //             comandOff: 'f',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //       ]),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 20),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "G/H",
+                //             comandOn: 'g',
+                //             comandOff: 'h',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "I/J",
+                //             comandOn: 'i',
+                //             comandOff: 'j',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "K/L",
+                //             comandOn: 'k',
+                //             comandOff: 'l',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //       ]),
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: Row(
@@ -177,261 +249,189 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
                       children: [
                         Column(children: [
                           ButtonDoubleComponent(
-                            buttonName: "A/B",
-                            comandOn: 'a',
-                            comandOff: 'b',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "C/D",
-                            comandOn: 'c',
-                            comandOff: 'd',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "E/F",
-                            comandOn: 'e',
-                            comandOff: 'f',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "G/H",
-                            comandOn: 'g',
-                            comandOff: 'h',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "I/J",
-                            comandOn: 'i',
-                            comandOff: 'j',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "K/L",
-                            comandOn: 'k',
-                            comandOff: 'l',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "M/N",
+                            buttonName: "start",
                             comandOn: 'm',
                             comandOff: 'n',
                             clientID: clientID,
                             connection: connection,
                           ),
                         ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "O/P",
-                            comandOn: 'o',
-                            comandOff: 'p',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "Q/R",
-                            comandOn: 'q',
-                            comandOff: 'r',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
+                        // const SizedBox(width: 30),
+                        // Column(children: [
+                        //   ButtonDoubleComponent(
+                        //     buttonName: "O/P",
+                        //     comandOn: 'o',
+                        //     comandOff: 'p',
+                        //     clientID: clientID,
+                        //     connection: connection,
+                        //   ),
+                        // ]),
+                        // const SizedBox(width: 30),
+                        // Column(children: [
+                        //   ButtonDoubleComponent(
+                        //     buttonName: "Q/R",
+                        //     comandOn: 'q',
+                        //     comandOff: 'r',
+                        //     clientID: clientID,
+                        //     connection: connection,
+                        //   ),
+                        // ]),
                       ]),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "S/T",
-                            comandOn: 's',
-                            comandOff: 't',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "U/V",
-                            comandOn: 'u',
-                            comandOff: 'v',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "W/X",
-                            comandOn: 'w',
-                            comandOff: 'x',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "Y/Z",
-                            comandOn: 'y',
-                            comandOff: 'z',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "0/1",
-                            comandOn: '0',
-                            comandOff: '1',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "2/3",
-                            comandOn: '2',
-                            comandOff: '3',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "4/5",
-                            comandOn: '4',
-                            comandOff: '5',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "6/7",
-                            comandOn: '6',
-                            comandOff: '7',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 30),
-                        Column(children: [
-                          ButtonDoubleComponent(
-                            buttonName: "8/9",
-                            comandOn: '8',
-                            comandOff: '9',
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(children: [
-                          ButtonSingleComponent(
-                            buttonName: "+",
-                            comandOn: '+',
-                            colorButton: Color.fromRGBO(238, 57, 61, 1),
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 10),
-                        Column(children: [
-                          ButtonSingleComponent(
-                            buttonName: "-",
-                            comandOn: '-',
-                            colorButton: Color.fromRGBO(8, 164, 113, 1),
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 10),
-                        Column(children: [
-                          ButtonSingleComponent(
-                            buttonName: "*",
-                            comandOn: '*',
-                            colorButton: Color.fromRGBO(239, 206, 45, 1),
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                        const SizedBox(width: 10),
-                        Column(children: [
-                          ButtonSingleComponent(
-                            buttonName: "/",
-                            comandOn: '/',
-                            colorButton: Color.fromRGBO(49, 86, 188, 1),
-                            clientID: clientID,
-                            connection: connection,
-                          ),
-                        ]),
-                      ]),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 20),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "S/T",
+                //             comandOn: 's',
+                //             comandOff: 't',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "U/V",
+                //             comandOn: 'u',
+                //             comandOff: 'v',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "W/X",
+                //             comandOn: 'w',
+                //             comandOff: 'x',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //       ]),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 20),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "Y/Z",
+                //             comandOn: 'y',
+                //             comandOff: 'z',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "0/1",
+                //             comandOn: '0',
+                //             comandOff: '1',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "2/3",
+                //             comandOn: '2',
+                //             comandOff: '3',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //       ]),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 20),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "4/5",
+                //             comandOn: '4',
+                //             comandOff: '5',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "6/7",
+                //             comandOn: '6',
+                //             comandOff: '7',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 30),
+                //         Column(children: [
+                //           ButtonDoubleComponent(
+                //             buttonName: "8/9",
+                //             comandOn: '8',
+                //             comandOff: '9',
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //       ]),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 30),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Column(children: [
+                //           ButtonSingleComponent(
+                //             buttonName: "+",
+                //             comandOn: '+',
+                //             colorButton: Color.fromRGBO(238, 57, 61, 1),
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 10),
+                //         Column(children: [
+                //           ButtonSingleComponent(
+                //             buttonName: "-",
+                //             comandOn: '-',
+                //             colorButton: Color.fromRGBO(8, 164, 113, 1),
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 10),
+                //         Column(children: [
+                //           ButtonSingleComponent(
+                //             buttonName: "*",
+                //             comandOn: '*',
+                //             colorButton: Color.fromRGBO(239, 206, 45, 1),
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                //         const SizedBox(width: 10),
+                //         Column(children: [
+                //           ButtonSingleComponent(
+                //             buttonName: "/",
+                //             comandOn: '/',
+                //             colorButton: Color.fromRGBO(49, 86, 188, 1),
+                //             clientID: clientID,
+                //             connection: connection,
+                //           ),
+                //         ]),
+                      // ]),
+                // ),
               ],
             ),
           ),
