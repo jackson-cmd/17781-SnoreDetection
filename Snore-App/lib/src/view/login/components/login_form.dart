@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sleep/src/view/home/home_screen.dart';
 
 import '../../../components/already_have_an_account_acheck.dart';
@@ -11,12 +12,16 @@ class LoginForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static final emailController = TextEditingController();
+  static final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           TextFormField(
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
@@ -32,6 +37,7 @@ class LoginForm extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: defaultPadding),
             child: TextFormField(
+              controller: passwordController,
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
@@ -49,16 +55,24 @@ class LoginForm extends StatelessWidget {
             tag: "login_btn",
             child: ElevatedButton(
               onPressed: () {
-                  snackbarKey.currentState?.showSnackBar(const SnackBar(
-                    content: Text("Welcome to Snore Detection!  ❤🤗"),
-                    behavior: SnackBarBehavior.floating,
-                    duration: Duration(seconds: 2),
-                    backgroundColor: Color(0xff3253BD),
-                  ));
-                  Navigator.pushAndRemoveUntil(context,
-                      MaterialPageRoute(builder: (context) {
-                        return const HomeScreen();
-                      }), (route) => false);
+                  // snackbarKey.currentState?.showSnackBar(const SnackBar(
+                  //   content: Text("Welcome to Snore Detection!  ❤🤗"),
+                  //   behavior: SnackBarBehavior.floating,
+                  //   duration: Duration(seconds: 2),
+                  //   backgroundColor: Color(0xff3253BD),
+                  // ));
+                  loginIn().then((value) {
+                    print(value.additionalUserInfo);
+                    if(!value.additionalUserInfo.isNewUser){
+                      Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (context) {
+                            return const HomeScreen();
+                          }), (route) => false);
+                    }
+                  }
+                  );
+
+
               },
               child: Text(
                 "Login".toUpperCase(),
@@ -81,5 +95,10 @@ class LoginForm extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future loginIn() async {
+    final response = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+    return response;
   }
 }

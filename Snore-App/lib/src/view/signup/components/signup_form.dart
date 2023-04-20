@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../../constants.dart';
 import '../../Login/login_screen.dart';
@@ -10,12 +10,16 @@ class SignUpForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static final emailController = TextEditingController();
+  static final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           TextFormField(
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
@@ -31,6 +35,7 @@ class SignUpForm extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: defaultPadding),
             child: TextFormField(
+              controller:passwordController,
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
@@ -52,10 +57,15 @@ class SignUpForm extends StatelessWidget {
                 //   duration: Duration(seconds: 2),
                 //   backgroundColor: Color(0xff3253BD),
                 // ));
-                Navigator.pushAndRemoveUntil(context,
-                    MaterialPageRoute(builder: (context) {
-                      return const LoginScreen();
-                    }), (route) => false);
+                signUp().then((value) {
+                  print(value.additionalUserInfo);
+                  if (value.additionalUserInfo.isNewUser) {
+                    Navigator.pushAndRemoveUntil(context,
+                        MaterialPageRoute(builder: (context) {
+                          return const LoginScreen();
+                        }), (route) => false);
+                  }
+                });
               },
             child: Text("Sign Up".toUpperCase()),
           ),
@@ -77,4 +87,13 @@ class SignUpForm extends StatelessWidget {
       ),
     );
   }
+  Future signUp() async {
+    try {
+      final response = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      return response;
+    } on  FirebaseAuthException catch (e){
+      print(e);
+    }
+  }
+
 }
