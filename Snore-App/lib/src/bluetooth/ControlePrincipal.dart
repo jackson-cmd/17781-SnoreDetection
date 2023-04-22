@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'components/ButtonDouble.dart';
 import 'components/ButtonSingle.dart';
-
+import 'package:encrypt/encrypt.dart' as encrypt;
 import 'components/VoiceButtonPage.dart';
 
 class ControlePrincipalPage extends StatefulWidget {
@@ -22,9 +22,24 @@ class _Message {
   _Message(this.whom, this.text);
 }
 
+encrypt.Encrypted encryptWithAES(String key, String plainText) {
+  final cipherKey = encrypt.Key.fromUtf8(key);
+  final encryptService =
+      encrypt.Encrypter(encrypt.AES(cipherKey, mode: encrypt.AESMode.ecb));
+  final initVector = encrypt.IV.fromUtf8(key.substring(0,
+      16)); //Here the IV is generated from key. This is for example only. Use some other text or random data as IV for better security.
+
+  encrypt.Encrypted encryptedData =
+      encryptService.encrypt(plainText, iv: initVector);
+  return encryptedData;
+}
+
+encrypt.Encrypted encrypted = encryptWithAES("1234567890123456", "o");
+
 class _ControlePrincipalPage extends State<ControlePrincipalPage> {
   static const clientID = 0;
   BluetoothConnection? connection;
+  String encryptedBase64 = encrypted.base64;
   String? language;
 
   // ignore: deprecated_member_use
@@ -50,7 +65,6 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
       print('Connected to device');
       connection = _connection;
       setState(() {
-        
         isConnecting = false;
         isDisconnecting = false;
       });
@@ -250,8 +264,8 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
                         Column(children: [
                           ButtonDoubleComponent(
                             buttonName: "start",
-                            comandOn: 'm',
-                            comandOff: 'n',
+                            comandOn: "Teststrig" + encryptedBase64 + "\n",
+                            comandOff: '',
                             clientID: clientID,
                             connection: connection,
                           ),
@@ -430,7 +444,7 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
                 //             connection: connection,
                 //           ),
                 //         ]),
-                      // ]),
+                // ]),
                 // ),
               ],
             ),
@@ -488,4 +502,6 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
           : _messageBuffer + dataString);
     }
   }
+
+  ///Encrypts the given plainText using the key. Returns encrypted data
 }
