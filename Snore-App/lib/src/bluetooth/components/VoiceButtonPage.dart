@@ -73,8 +73,9 @@ class _VoiceButtonState extends State<VoiceButtonComponent> {
   _sendMessage(text) async {
     text = text.trim();
     textEditingController.clear();
-
-    if (text.length > 0) {
+    
+    if (text.length > 0 && text.contains('move')) {
+      // text = encrpted message 
       try {
         widget.connection!.output
             .add(Uint8List.fromList(utf8.encode(text + "\r\n")));
