@@ -3,6 +3,8 @@
 #include <Wire.h>
 #include <Servo.h> 
 #include <SoftwareSerial.h>
+#include <AES.h>
+
 // define interrupt button to pin 13
 int relayPin = 12; // the relay is connected to pin 12
 int BUTTONPIN = 13;// the momentary switch is connected to pin 13
@@ -12,47 +14,95 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
  
 int boomBoxMode = 1; // start counter for keeping track of the Mode and LCD message to display
 Servo servo;
-int degree[] = {0,15,30,45,60};
-int size = 5;
+Servo servo2;
+int offset = 60;
+int offset2 = 30;
+int degree[] = {0,10,20,30,20,10,0,-10};
+int size = 8;
 int motorindex;
 int debounce = 0;
-SoftwareSerial Bluetooth(10,9); 
+SoftwareSerial Bluetooth(10,9);
+
+String message = "";
+AES encrypt;
+char input[16] = "o";
+char output[16] = "abcdefgh";
+byte buffer[16] = "1234567890123456";
+byte key[16] = "1234567890123456";
+
 void setup()
 {
   Wire.begin();      // begin communication protocol to use two-wire communication/ I2C
   Serial.begin(9600);   // starts communication with the Serial Monitor - used for troubleshooting when necessary
   Serial.print ("begin: "); 
   servo.attach(3);
-  pinMode(A2, INPUT);
+  servo.write(offset);
+  servo2.attach(4);
+  servo2.write(offset2);
   motorindex = 0;
-  
   Bluetooth.begin(9600);
   Bluetooth.println("Send 1 to turn on the LED. Send 0 to turn Off");
+  encrypt.set_key(key,16);
+  encrypt.encrypt(input, buffer);
+    for(int i = 0;i<16;i++){
+    message+=(byte)buffer[i];
+    message+=" ";
+  }
+  Serial.print(message);
+  message = "";
+  /*
+  encrypt.set_key(key,16);
+  encrypt.encrypt(input, buffer);
+  encrypt.decrypt(buffer,output);
+  for(int i = 0;i<16;i++){
+    message+=(byte)output[i];
+    message+=" ";
+  }
+  //Serial.print((char)output[2]);
+  Serial.println(message);
+  */
+  message = "";
 }
 
 int movemotor(){
   motorindex++;
   if(motorindex==size)
     motorindex = 0;
-  servo.write(degree[motorindex]);
+  servo.write(offset + degree[motorindex]);
+  servo2.write((int)(offset2 - degree[motorindex]));
   return 0;
 }
 
 void loop() 
 {
-  if (Bluetooth.available()>0){
-    int p = Bluetooth.read();
-    if(p=='m')
+  int available = Bluetooth.available();
+  if (Bluetooth.available()){
+    char p = Bluetooth.read();
+    if(p=='\n'){
+      Serial.println(message);
+      if(strcmp(message.c_str(),"Y31kPn/Knxd9rXX96Qe1Sg==")){
       movemotor();
+      Serial.println("ASd");
+      message = "";
+      }
+    }
+    message += (char)p;
+  }
+  if(message.indexOf("Teststring") > 0){
+    message = "";
   }
   /*
-  int sensorValue = analogRead(A0);
-  int v2 = analogRead(A1);
-  float voltage= (sensorValue-v2) * (5.0 / 1023.0);
-  if(abs(voltage)>3.0){
-    Serial.println(voltage);
+  if(message.indexOf("\n") >0){
+    Serial.println(message);
+    encrypt.decrypt(message.c_str(),output);
+    //Serial.print(output);
+    if(message == "Y31kPn/Knxd9rXX96Qe1Sg==\n"){
+      movemotor();
+      Serial.print("ASd");
+    }
+    message = "";
   }
-  */
+*/
   /*
   servo.write(0); // move MG996R's shaft to angle 0°
   delay(1000); // wait for one second
@@ -78,4 +128,3 @@ void loop()
   
 }
     
- 
