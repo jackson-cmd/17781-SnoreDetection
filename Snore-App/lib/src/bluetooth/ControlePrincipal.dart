@@ -263,9 +263,9 @@ class _ControlePrincipalPage extends State<ControlePrincipalPage> {
                       children: [
                         Column(children: [
                           ButtonDoubleComponent(
-                            buttonName: "start",
+                            buttonName: "move",
                             comandOn: "Teststrig" + encryptedBase64 + "\n",
-                            comandOff: '',
+                            comandOff: "Teststrig" + encryptedBase64 + "\n",
                             clientID: clientID,
                             connection: connection,
                           ),
