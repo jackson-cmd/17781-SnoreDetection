@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_speech/flutter_speech.dart';
+import 'package:encrypt/encrypt.dart' as encrypt;
 
 
 class VoiceButtonComponent extends StatefulWidget {
@@ -39,6 +40,18 @@ class _Message {
   String text;
 
   _Message(this.whom, this.text);
+}
+
+encrypt.Encrypted encryptWithAES(String key, String plainText) {
+  final cipherKey = encrypt.Key.fromUtf8(key);
+  final encryptService =
+  encrypt.Encrypter(encrypt.AES(cipherKey, mode: encrypt.AESMode.ecb));
+  final initVector = encrypt.IV.fromUtf8(key.substring(0,
+      16)); //Here the IV is generated from key. This is for example only. Use some other text or random data as IV for better security.
+
+  encrypt.Encrypted encryptedData =
+  encryptService.encrypt(plainText, iv: initVector);
+  return encryptedData;
 }
 
 
@@ -75,7 +88,9 @@ class _VoiceButtonState extends State<VoiceButtonComponent> {
     textEditingController.clear();
     
     if (text.length > 0 && text.contains('move')) {
-      // text = encrpted message 
+      encrypt.Encrypted encrypted = encryptWithAES("1234567890123456", "o");
+      String encryptedBase64 = encrypted.base64;
+      text = encryptedBase64;
       try {
         widget.connection!.output
             .add(Uint8List.fromList(utf8.encode(text + "\r\n")));
